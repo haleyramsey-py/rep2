@@ -1,0 +1,15 @@
+#This code is used to compare reports run from data collection software at different time points to identify if new data was added
+#or deleted
+#last edited 7/8/2019
+
+require(compareDF)
+require(tibble)
+require(rlang)
+require(digest)
+
+data1<-as.data.frame(read.csv(file.choose()))
+data2<-as.data.frame(read.csv(file.choose()))
+
+a<-compare_df(data2, data1, c('study_id'))
+
+print(a)
